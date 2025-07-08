@@ -1,6 +1,7 @@
 
+import 'package:course/feature/introduction/start_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:course/feature/home/home.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -14,10 +15,10 @@ class OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const HomePage()),
-    );
-  }
+    Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (_) => const StartScreen()),
+                  (route) => false,
+  );}
 
   Widget _buildImage(String assetName, [double width = 350]) {
     return Image.asset(assetName, width: width);
@@ -37,8 +38,8 @@ class OnBoardingPageState extends State<OnBoardingPage> {
     return IntroductionScreen(
       key: introKey,
       allowImplicitScrolling: true,
-      // autoScrollDuration: 3000,
-      infiniteAutoScroll:false,
+      autoScrollDuration: 3000,
+      infiniteAutoScroll: false,
       globalHeader: Align(
         alignment: Alignment.topRight,
         child: SafeArea(
@@ -71,7 +72,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
                 _buildImage('assets/logo/logo.png'),
                 Text("Up Todo",
                 style: TextStyle(
-                fontSize: 40,
+                fontSize: 40.sp,
                 fontWeight: FontWeight.bold
               ),
               )
@@ -179,7 +180,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
     ],
   ),
   decoration: pageDecoration,
-),
+),    
       ],
       onDone: () => _onIntroEnd(context),
       onSkip: () => _onIntroEnd(context), // You can override onSkip callback

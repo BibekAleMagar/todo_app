@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "63035460374",
+    "project_id": "professional-course-73449",
+    "storage_bucket": "professional-course-73449.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63035460374:android:630dfb2c1d880c49981e37",
+        "android_client_info": {
+          "package_name": "com.example.course"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6JwqGy9FYgFV-9snY5_r3nEx5buMn4tg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
